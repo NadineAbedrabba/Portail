@@ -1,0 +1,23 @@
+<div
+  class="control"
+  *ngIf="
+    editForm.get(name)?.status === 'INVALID' &&
+    (editForm.get(name)!.dirty || editForm.get(name)!.touched)
+  "
+>
+  <small *ngIf="editForm.get(name)?.errors?.['required']">
+    Ce champ est requis.
+  </small>
+  <small *ngIf="editForm.get(name)?.errors?.['minlength'] as minLength">
+    La longueur minimale requise est de {{ minLength.requiredLength }} caractères.
+    <br />
+  </small>
+  <small *ngIf="editForm.get(name)?.errors?.['maxlength'] as maxLength">
+    La longueur maximale autorisée est de {{ maxLength.requiredLength }} caractères.
+    <br />
+  </small>
+  <small *ngIf="editForm.get(name)?.errors?.['pattern']">
+    Format invalide.
+    <br />
+  </small>
+</div>

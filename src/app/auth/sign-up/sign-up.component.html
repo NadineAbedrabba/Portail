@@ -1,0 +1,57 @@
+<div class="master-container">
+    <div class="container">
+        <div class="form-container">
+            <div class="image-container">
+                <div>
+                <img src="assets/image.png" alt="Image" /> 
+            </div>
+            
+            </div>
+            <div class="formulaire">
+                <form [formGroup]="signUpForm">
+                    <div class="form-group">
+
+                        <label for="matricule">Matricule</label> <br>
+                        <input type="text" [ngClass]="{ error: signUpForm.get('matricule')?.invalid }" class="form-control" 
+                        id="matricule" placeholder="Entrez votre matricule" formControlName="matricule">
+                        <app-controle [editForm]="signUpForm" name="matricule"></app-controle>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="nom">Nom de Famille</label> <br>
+                        <input type="text"[ngClass]="{ error: signUpForm.get('nom')?.invalid }" class="form-control"
+                         id="nom" placeholder="Entrez votre nom" formControlName="nom">
+                         <app-controle [editForm]="signUpForm" name="nom"></app-controle>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom">Prénom</label> <br>
+                        <input type="text" [ngClass]="{ error: signUpForm.get('prenom')?.invalid }" class="form-control" 
+                        id="prenom" placeholder="Entrez votre prénom" formControlName="prenom" >
+                        <app-controle [editForm]="signUpForm" name="prenom"></app-controle>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Mot de passe</label> <br>
+                        <input type="password" [ngClass]="{ error: signUpForm.get('password')?.invalid }"  class="form-control" 
+                        id="password" placeholder="Entrez votre Mot de passe" formControlName="password">
+                        <app-controle [editForm]="signUpForm" name="password"></app-controle>
+                        <br><br>
+                    </div>
+                     <div>
+                    <button type="submit" class="btn-primary"  [disabled]="!isFormValid">S'inscrire</button>
+                     </div>
+
+                </form>
+               
+            </div>
+            <footer>   
+                <p>&copy; 2024 ArabSoft. All rights reserved.</p>
+           </footer>
+            
+
+            
+        </div>
+        
+    </div>
+</div>

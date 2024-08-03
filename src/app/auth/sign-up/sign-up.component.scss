@@ -25,17 +25,17 @@
     background-color: rgb(226, 214, 234);
     display: grid;
     grid-template-columns: 1fr 2fr; 
-    width: 70%;
     max-width: 800px; 
-    height: 60%;
+    height: 70%;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
   }
   .image-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 15px;;
+    margin: 15px;
   }
   
   .image-container img {
@@ -45,11 +45,13 @@
   }
   
   .formulaire{
-    padding: 20px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-top: 70px;
+    width: 100%; 
+    max-width: 100%;
   }
   
   .formulaire form {
@@ -80,51 +82,31 @@
     margin-left: 15px;
   }
   input{
-    margin-top: 5px;
+    margin-top: 2px;
   }
   .form-control:hover{
     border: solid 2px rgb(71, 26, 88);
   }
-  .lien{
-    color: rgb(71, 26, 88);
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 100;
-    font-style:italic;
-    text-decoration: underline;
-  }
-  .hover-underline {
-    text-decoration: none; /* Remove default underline */
-    position: relative; /* Position relative to use pseudo-elements */
-  }
   footer{
   
-   color: rgb(131, 90, 125);
-   display:flex;
-   align-items: center;
-   justify-content: center;
-  }
-  .message{
-    display: flex;
+    color: rgb(131, 90, 125);
+    display:flex;
     align-items: center;
     justify-content: center;
-  }
-  @media (max-width: 600px) {
+   }
+   @media (max-width: 600px) {
     .form-container {
         grid-template-columns: 1fr; 
         height: auto;
     }
     .image-container {
-        margin: 0;
+        margin-top: 0;
+        height: 70%;
         
     }
     .formulaire {
-        margin-top: 10px;
+        margin-top: 20px;
+        margin-left: 10px;
     }
-    .lien{
-        font-size: 0.8rem;
-    }
-    .message{
-        font-size: 0.8rem;    }
 
 }

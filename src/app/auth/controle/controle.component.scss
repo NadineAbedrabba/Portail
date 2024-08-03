@@ -1,0 +1,10 @@
+.control {
+    color: rgb(239, 32, 226);
+    font-size: 20px;
+  }
+  @media only screen and (max-width: 600px) {
+    .control {
+      font-size: 15px;
+    }
+  }
+  

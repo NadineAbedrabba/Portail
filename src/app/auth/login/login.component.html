@@ -6,18 +6,24 @@
             
             </div>
             <div class="formulaire">
-                <form>
+                <form [formGroup]="loginForm">
                     <div class="form-group">
                         <label for="matricule">Matricule</label> <br>
-                        <input type="text" class="form-control" id="matricule" placeholder="Entrez votre matricule" required>
+                        <input type="text" [ngClass]="{ error: loginForm.get('matricule')?.invalid }"
+                        class="form-control" id="matricule" placeholder="Entrez votre matricule" formControlName="matricule">
+                        <app-controle [editForm]="loginForm" name="matricule"></app-controle>
+
                     </div>
                     <div class="form-group">
-                        <label for="email">Mot de passe</label> <br>
-                        <input type="password" class="form-control" id="password" placeholder="Entrez votre Mot de passe" required>
+                        <label for="password">Mot de passe</label> <br>
+                        <input type="password"   [ngClass]="{ error: loginForm.get('password')?.invalid }"
+                        class="form-control" id="password" placeholder="Entrez votre Mot de passe" formControlName="password">
+                        <app-controle [editForm]="loginForm" name="password"></app-controle>
+
                         <br><br>
                     </div>
                      <div>
-                    <button type="submit" class="btn-primary">Se connecter</button>
+                    <button type="submit" class="btn-primary"  [disabled]="!isFormValid"> Se connecter</button>
                      </div>
                      <p class="message">Vous n'avez pas de compte ? <a href="/signup" class="lien">Inscrivez-vous</a></p>
 
