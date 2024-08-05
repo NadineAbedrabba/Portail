@@ -23,7 +23,7 @@
                         <br><br>
                     </div>
                      <div>
-                    <button type="submit" class="btn-primary"  [disabled]="!isFormValid"> Se connecter</button>
+                    <button (click)="onLogin()" type="submit" class="btn-primary"  [disabled]="!isFormValid"> Se connecter</button>
                      </div>
                      <p class="message">Vous n'avez pas de compte ? <a href="/signup" class="lien">Inscrivez-vous</a></p>
 

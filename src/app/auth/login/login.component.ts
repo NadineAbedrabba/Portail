@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { FormBuilder, Validators,FormGroup } from '@angular/forms';
+import { AuthServiceService } from '../auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,7 @@ export class LoginComponent implements OnInit {
   isFormValid: boolean = false;
 
 
-  constructor(    private fb: FormBuilder){}
+  constructor(    private fb: FormBuilder ,private auth:AuthServiceService , private router: Router){}
     ngOnInit() {
       this.loginForm = this.fb.group({
         matricule: [
@@ -19,7 +22,7 @@ export class LoginComponent implements OnInit {
           [
             Validators.required,
             Validators.minLength(3),
-            Validators.maxLength(30),
+            Validators.maxLength(4),
             Validators.pattern(/^\d+$/),
           ],
         ],
@@ -37,7 +40,21 @@ export class LoginComponent implements OnInit {
         this.isFormValid = status === 'VALID';
       });
   }
+  onLogin(){
+    if(this.loginForm.valid){
+      console.log(this.loginForm.value);
+      this.auth.login(this.loginForm.value).subscribe({
+        next:(res)=>{
+          alert(res.message);
+          this.router.navigate(['/']);
 
+        },
+        error:(err)=>{
+          alert(err.error.message)
+        }
+  })
 }
+
+  }}
 
 

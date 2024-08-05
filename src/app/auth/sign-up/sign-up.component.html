@@ -13,7 +13,7 @@
 
                         <label for="matricule">Matricule</label> <br>
                         <input type="text" [ngClass]="{ error: signUpForm.get('matricule')?.invalid }" class="form-control" 
-                        id="matricule" placeholder="Entrez votre matricule" formControlName="matricule">
+                        id="matricule" placeholder="Entrez votre matricule" formControlName="matricule" readonly>
                         <app-controle [editForm]="signUpForm" name="matricule"></app-controle>
 
                     </div>
@@ -39,7 +39,7 @@
                         <br><br>
                     </div>
                      <div>
-                    <button type="submit" class="btn-primary"  [disabled]="!isFormValid">S'inscrire</button>
+                    <button (click)="onSignUp()" type="submit" class="btn-primary"  [disabled]="!isFormValid">S'inscrire</button>
                      </div>
 
                 </form>
